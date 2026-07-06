@@ -18,4 +18,4 @@ helm install kubevirtbmc kubevirtbmc/kubevirtbmc \
 
 ## Repository layout
 
-The chart source lives in [`charts/kubevirtbmc`](charts/kubevirtbmc). Changes merged to `main` are linted, installed into a kind cluster, packaged, and published to the `gh-pages` branch by chart-releaser.
+The chart source lives in [`charts/kubevirtbmc`](charts/kubevirtbmc). Pushes to `main` are linted and installed into a kind cluster. Pushes to `release` additionally package and publish the chart to the `gh-pages` branch by chart-releaser.
