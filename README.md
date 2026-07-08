@@ -9,7 +9,7 @@ This repository hosts the Helm chart for [KubeVirtBMC](https://github.com/kubevi
 KubeVirtBMC uses cert-manager for webhook certificates, so install cert-manager in the target cluster before installing this chart.
 
 ```sh
-helm repo add kubevirtbmc https://kubevirtbmc.github.io/chart
+helm repo add kubevirtbmc https://charts.kubevirtbmc.io
 helm repo update
 helm install kubevirtbmc kubevirtbmc/kubevirtbmc \
   --namespace kubevirtbmc-system \
