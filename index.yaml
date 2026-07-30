@@ -2,6 +2,33 @@ apiVersion: v1
 entries:
   kubevirtbmc:
   - apiVersion: v2
+    appVersion: v0.9.0
+    created: "2026-07-30T10:43:16.189571937Z"
+    description: A Helm chart for KubeVirtBMC
+    digest: bc7d10662aea9afbf66f5a208059636ef37b8f9d684a69bbd581ca567851703a
+    home: https://kubevirtbmc.io
+    keywords:
+    - kubevirt
+    - cdi
+    - vm
+    - bmc
+    - ipmi
+    - redfish
+    maintainers:
+    - email: starbops@zespre.com
+      name: starbops
+      url: https://www.zespre.com
+    - email: anishbista053@gmail.com
+      name: anishbista60
+    name: kubevirtbmc
+    sources:
+    - https://github.com/kubevirtbmc/chart
+    - https://github.com/kubevirtbmc/kubevirtbmc
+    type: application
+    urls:
+    - https://github.com/kubevirtbmc/chart/releases/download/kubevirtbmc-0.6.0/kubevirtbmc-0.6.0.tgz
+    version: 0.6.0
+  - apiVersion: v2
     appVersion: v0.8.1
     created: "2026-07-02T15:42:42.98786129Z"
     description: A Helm chart for KubeVirtBMC
@@ -299,4 +326,4 @@ entries:
     urls:
     - https://github.com/starbops/kubevirtbmc/releases/download/kubevirtbmc-0.0.0-dev/kubevirtbmc-0.0.0-dev.tgz
     version: 0.0.0-dev
-generated: "2026-07-02T15:42:42.987948373Z"
+generated: "2026-07-30T10:43:16.189684347Z"
