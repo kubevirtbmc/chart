@@ -1,6 +1,6 @@
 apiVersion: v2
 name: kubevirtbmc
-version: 0.0.0-dev
+version: 0.6.0
 description: A Helm chart for KubeVirtBMC
 type: application
 keywords:
@@ -20,4 +20,4 @@ maintainers:
     url: https://www.zespre.com
   - name: anishbista60
     email: anishbista053@gmail.com
-appVersion: main-head
+appVersion: v0.9.0
