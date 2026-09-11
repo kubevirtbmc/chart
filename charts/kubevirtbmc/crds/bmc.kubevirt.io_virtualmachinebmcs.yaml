@@ -76,6 +76,29 @@ spec:
                     description: Enabled toggles the IPMI simulator.
                     type: boolean
                 type: object
+              redfish:
+                description: Redfish configures Redfish-specific behavior.
+                properties:
+                  virtualMedia:
+                    description: VirtualMedia configures the DataVolume created on
+                      virtual media insert.
+                    properties:
+                      storage:
+                        description: Storage configures the storage backing the DataVolume.
+                        properties:
+                          volumeMode:
+                            description: |-
+                              VolumeMode is the volume mode for the DataVolume created on virtual media insert; unset keeps
+                              today's behavior (Filesystem, CDI's own default). Block requests a raw block device instead,
+                              which has no filesystem overhead and so isn't subject to the StorageClass's CDI
+                              filesystemOverhead setting — useful when that setting can't accommodate an exact-size image.
+                            enum:
+                            - Filesystem
+                            - Block
+                            type: string
+                        type: object
+                    type: object
+                type: object
               service:
                 description: BMC Service configuration
                 properties:
