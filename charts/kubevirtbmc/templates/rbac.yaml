@@ -230,6 +230,14 @@ rules:
   - pods
   verbs:
   - get
+- apiGroups:
+  # The agent GETs the CA bundle ConfigMap in the VM's namespace at
+  # InsertMedia time when virtualMedia.tls.caBundleConfigMapRef is set.
+  - ""
+  resources:
+  - configmaps
+  verbs:
+  - get
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
