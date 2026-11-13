@@ -103,7 +103,6 @@ rules:
   - update
 - apiGroups:
   - bmc.kubevirt.io
-  - virtualmachine.kubevirt.io
   resources:
   - virtualmachinebmcs/status
   verbs:
@@ -113,21 +112,10 @@ rules:
 - apiGroups:
   - kubevirt.io
   resources:
-  - virtualmachineinstances
-  verbs:
-  - delete
-  - get
-  - list
-  - watch
-- apiGroups:
-  - kubevirt.io
-  resources:
   - virtualmachines
   verbs:
   - get
   - list
-  - patch
-  - update
   - watch
 - apiGroups:
   - rbac.authorization.k8s.io
@@ -146,14 +134,6 @@ rules:
   - list
   - patch
   - update
-  - watch
-- apiGroups:
-  - virtualmachine.kubevirt.io
-  resources:
-  - virtualmachinebmcs
-  verbs:
-  - get
-  - list
   - watch
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -207,7 +187,6 @@ rules:
   - virtualmachines
   verbs:
   - get
-  - list
   - watch
   - update
   - patch
@@ -225,17 +204,12 @@ rules:
   - virtualmachineinstances
   verbs:
   - get
-  - list
   - watch
-  - delete
 - apiGroups:
   - cdi.kubevirt.io
   resources:
   - datavolumes
   verbs:
-  - get
-  - list
-  - watch
   - create
   - delete
 - apiGroups:
@@ -256,6 +230,14 @@ rules:
   - pods
   verbs:
   - get
+- apiGroups:
+  # The agent GETs the CA bundle ConfigMap in the VM's namespace at
+  # InsertMedia time when virtualMedia.tls.caBundleConfigMapRef is set.
+  - ""
+  resources:
+  - configmaps
+  verbs:
+  - get
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -267,13 +249,13 @@ metadata:
   name: {{ include "chart.name" . }}-virtualmachinebmc-admin-role
 rules:
 - apiGroups:
-  - virtualmachine.kubevirt.io
+  - bmc.kubevirt.io
   resources:
   - virtualmachinebmcs
   verbs:
   - '*'
 - apiGroups:
-  - virtualmachine.kubevirt.io
+  - bmc.kubevirt.io
   resources:
   - virtualmachinebmcs/status
   verbs:
@@ -289,7 +271,7 @@ metadata:
   name: {{ include "chart.name" . }}-virtualmachinebmc-editor-role
 rules:
 - apiGroups:
-  - virtualmachine.kubevirt.io
+  - bmc.kubevirt.io
   resources:
   - virtualmachinebmcs
   verbs:
@@ -301,7 +283,7 @@ rules:
   - update
   - watch
 - apiGroups:
-  - virtualmachine.kubevirt.io
+  - bmc.kubevirt.io
   resources:
   - virtualmachinebmcs/status
   verbs:
@@ -317,7 +299,7 @@ metadata:
   name: {{ include "chart.name" . }}-virtualmachinebmc-viewer-role
 rules:
 - apiGroups:
-  - virtualmachine.kubevirt.io
+  - bmc.kubevirt.io
   resources:
   - virtualmachinebmcs
   verbs:
@@ -325,7 +307,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - virtualmachine.kubevirt.io
+  - bmc.kubevirt.io
   resources:
   - virtualmachinebmcs/status
   verbs:
